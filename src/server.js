@@ -11,7 +11,7 @@ app.use(express.json())
 
 // RUTAS PRINCIPAL
 app.get('/', (req,res)=>{
-    res.send("OK")
+    res.send("Servidor levantado OK")
 })
 
 
