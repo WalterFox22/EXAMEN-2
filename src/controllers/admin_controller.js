@@ -32,6 +32,19 @@ const loginAdminController = async (req, res) => {
     try {
         const admin = await adminModel.loginAdminModel(username, password);
 
+        // Validaciones sobre el login de un administrador ya que se tiene que registrar con el rol de admin 
+        // Validar si existe un error o si el usuario no es un administrador
+        if (admin.error || admin.role !== "admin") {
+            return res.status(403).json({ error: "Acceso denegado. Solo los administradores pueden iniciar sesión." });
+        }
+
+        // Verificar si la contraseña es válida
+        const isMatch = await bcrypt.compare(password, admin.password);
+        if (!isMatch) {
+            return res.status(401).json({ error: "Credenciales incorrectas." });
+        }
+
+
         // Crear el token de autenticación
         const token = createtoken(admin);
 

@@ -7,11 +7,20 @@
       "username": "Byron"
     },
     {
-      "id": "d3ebe4c0-8de5-4ee6-b854-476d02d7bd4d",
-      "password": "$2b$10$d4nER2TQpFJ3Z90uA7AzGeIsGhTo86Iybv3WF5/Si/SI6qlcbBjua",
+      "id": "9890bcde-264a-467a-82e6-7254d0157699",
+      "password": "$2b$10$DMSyB3G3uABIvcYTiW40BOXhNA08I1vSpYC3bfdrpZp5TjSiw/UBu",
       "name": "Poll",
-      "username": "frank",
-      "email": "fra23@gmail.com"
+      "username": "sami",
+      "email": "sam23@gmail.com",
+      "role": "admin"
+    },
+    {
+      "id": "1a96508d-a9cc-4146-9f52-eef465846272",
+      "password": "$2b$10$CZdVDeo3ao/saMTpNQwR0e2v6Gc7GTcw.Gtu9ZOv4AierfTAdZqt.",
+      "name": "Luis",
+      "username": "lucho",
+      "email": "lucho34@gmail.com",
+      "role": "admin"
     }
   ],
   "products": [
