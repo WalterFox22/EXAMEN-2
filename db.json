@@ -1,0 +1,31 @@
+{
+  "admin": [
+    {
+      "id": "f319c13f-e7aa-48c1-9d26-9b5d5e7050a6",
+      "password": "$2b$10$FlbTUh6zwPvUaqG0.QWDguvi0Yxsp2ihXYV17f/2CpTgEbRKa7qau",
+      "name": "Byron",
+      "username": "Byron"
+    },
+    {
+      "id": "d3ebe4c0-8de5-4ee6-b854-476d02d7bd4d",
+      "password": "$2b$10$d4nER2TQpFJ3Z90uA7AzGeIsGhTo86Iybv3WF5/Si/SI6qlcbBjua",
+      "name": "Poll",
+      "username": "frank",
+      "email": "fra23@gmail.com"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Product1",
+      "price": 100,
+      "description": "Description of Product1"
+    },
+    {
+      "id": "2",
+      "name": "Product2",
+      "price": 200,
+      "description": "Description of Product2"
+    }
+  ]
+}
