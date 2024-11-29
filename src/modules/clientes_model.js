@@ -29,6 +29,19 @@ const clientes_model = {
         }else{
             return {error:"Nombre de usuario o contraseña incorrecto"}
         }
+    },
+
+    async eliminarClienteModel(clienteId){
+        // CONEXIÓN A BDD
+        const url = `${process.envv.URL_BDD_CLIENTS}/${clienteId}`
+        // ENVIAR INFO A BDD
+        const peticion = await fetch(url,{
+            method:"DELETE"
+        })
+        // OBTENER REPUESTA DE BDD
+        const data = await peticion.json()
+        // MANDAR RESPUESTA A CONTROLADOR
+        return data
     }
     
 }

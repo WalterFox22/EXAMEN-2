@@ -24,7 +24,7 @@ app.get('/', (req,res)=>{
 // Rutas - Admin
 app.use('/api',routerAdmin)
 
-//Ruta - Cliente
+//  Ruta - Cliente
 
 app.use('/api',router_cliente)
 
