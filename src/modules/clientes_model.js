@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import { json } from 'express';
-import { watchFile } from 'fs-extra';
+//import { watchFile } from 'fs-extra';
 dotenv.config();
 
 const clientes_model = {
@@ -31,9 +31,26 @@ const clientes_model = {
         }
     },
 
+    async actualizarClienteModel(clienteId,actualizarClienteModel){
+        // CONEXIÓN A BDD
+        const url = `${process.env.URL_BDD_CLIENTS}/${clienteId}`
+        // ENVIAR INFO A BDD
+        const peticion = await fetch(url,{
+            method:"PUT",
+            body:JSON.stringify(actualizarClienteModel),
+            headers:{'Content-Type':"application/json"}
+        })
+        // OBTENER REPUESTA DE BDD
+        const data = await peticion.json()
+        // MANDAR RESPUESTA A CONTROLADOR
+        return data
+    }
+
+    ,
+
     async eliminarClienteModel(clienteId){
         // CONEXIÓN A BDD
-        const url = `${process.envv.URL_BDD_CLIENTS}/${clienteId}`
+        const url = `${process.env.URL_BDD_CLIENTS}/${clienteId}`
         // ENVIAR INFO A BDD
         const peticion = await fetch(url,{
             method:"DELETE"

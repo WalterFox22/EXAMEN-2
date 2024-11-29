@@ -33,17 +33,28 @@ const loginClienteController =async (req,res) =>{
     }
 }
 
-const eliminarCliente = async (req,res) => { 
+
+const actualizarClienteController = async(req,res) => {
+    const {id} = req.params
+    try {
+        const cliente = await clientes_model.actualizarClienteModel(id,req.body)
+        res.status(200).json(cliente)
+    } catch (error) {
+        req.status(500).json(error)
+    }
+}
+
+const eliminarClienteController = async (req,res) => { 
     const {id} = req.params
     try {
 
         // Obtener el Tour por ID
-        const clienteFind = await clienteModel.getClienteByIdModel(id)
+        const clienteFind = await clientes_model.getClienteByIdModel(id)
         // Eliminación por su public_id de cloudinary
         await cloudinary.uploader.destroy(clienteFind.public_id)
 
 
-        await clienteModel.eliminarClienteModel(id)
+        await clientes_model.eliminarClienteModel(id)
         res.status(200).json({msg:"Cliente eliminado"})
     } catch (error) {
         res.status(500).json(error)
@@ -52,5 +63,6 @@ const eliminarCliente = async (req,res) => {
 export{
     registroClienteController,
     loginClienteController,
-    eliminarCliente,
+    actualizarClienteController,
+    eliminarClienteController,
 }
