@@ -4,7 +4,7 @@ dotenv.config();
 const productModel = {
     // Crear un producto
     async createProductModel(newProduct) {
-        const url = process.env.URL_BDD_TOURS;
+        const url = process.env.URL_BDD_PRODUCTS; // Asegúrate de que esta URL esté configurada en tu archivo .env
         const peticion = await fetch(url, {
             method: 'POST',
             body: JSON.stringify(newProduct),
@@ -14,11 +14,23 @@ const productModel = {
         return data;
     },
 
-    // Actualizar un producto por ID (solo id, name, price, description)
+    // Actualizar un producto por ID (con los campos especificados)
     async updateProductModel(productId, updatedData) {
         try {
             // Filtrar solo los campos permitidos
-            const allowedFields = ['id', 'name', 'price', 'description'];
+            const allowedFields = [
+                'id',
+                'idProducto',
+                'nombre',
+                'artista',
+                'genero',
+                'precio',
+                'formato',
+                'fechaLanzamiento',
+                'stock',
+                'descripcion',
+                'imagen',
+            ];
             const filteredData = Object.keys(updatedData)
                 .filter((key) => allowedFields.includes(key))
                 .reduce((obj, key) => {
@@ -26,6 +38,7 @@ const productModel = {
                     return obj;
                 }, {});
 
+            // Construir la URL y realizar la petición
             const url = `${process.env.URL_BDD_PRODUCTS}/${productId}`;
             const response = await fetch(url, {
                 method: 'PUT',
@@ -33,12 +46,12 @@ const productModel = {
                 headers: { 'Content-Type': 'application/json' },
             });
 
-            // Verificar 
+            // Verificar la petición
             if (!response.ok) {
                 throw new Error(`Error al actualizar el producto: ${response.statusText}`);
             }
 
-            // Retornar producto actualizado
+            // Retornar el producto actualizado
             const data = await response.json();
             return data;
         } catch (error) {
