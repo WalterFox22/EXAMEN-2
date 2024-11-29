@@ -7,6 +7,7 @@ dotenv.config();
 const clientes_model = {
 
     async registroClientesUserModel (nuevoCliente) {
+        
         const url= process.env.URL_BDD_CLIENT; //Almacena el enlace
         const peticion = await fetch(url,{
             method:"POST", body:JSON.stringify(nuevoCliente),headers:{'Content-Type':'aplication/json'}//Condiciones para que me lea 
@@ -16,6 +17,7 @@ const clientes_model = {
     },
 
     async loginClienteUserModel (username,password){
+        
         const url= process.env.URL_BDD_CLIENT;
         const peticion = await fetch (url);
         const clientes = await peticion.json();
@@ -32,7 +34,7 @@ const clientes_model = {
     },
 
     async actualizarClienteModel(clienteId,actualizarClienteModel){
-        // CONEXIÓN A BDD
+       
         const url = `${process.env.URL_BDD_CLIENTS}/${clienteId}`
         // ENVIAR INFO A BDD
         const peticion = await fetch(url,{
@@ -49,7 +51,7 @@ const clientes_model = {
     ,
 
     async eliminarClienteModel(clienteId){
-        // CONEXIÓN A BDD
+        
         const url = `${process.env.URL_BDD_CLIENTS}/${clienteId}`
         // ENVIAR INFO A BDD
         const peticion = await fetch(url,{

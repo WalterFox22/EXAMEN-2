@@ -25,16 +25,84 @@
   ],
   "products": [
     {
-      "id": "1",
-      "name": "Product1",
-      "price": 100,
-      "description": "Description of Product1"
+      "id": "P001",
+      "nombre": "Abbey Road",
+      "artista": "The Beatles",
+      "genero": "Rock",
+      "precio": 35.99,
+      "formato": "LP",
+      "fechaLanzamiento": 1969,
+      "stock": 12,
+      "descripcion": "Uno de los álbumes más icónicos de The Beatles, con una mezcla única de estilos musicales.",
+      "imagen": "https://http2.mlstatic.com/D_NQ_NP_807701-MCO45054944647_032021-O.webp"
     },
     {
-      "id": "2",
-      "name": "Product2",
-      "price": 200,
-      "description": "Description of Product2"
+      "id": "P002",
+      "nombre": "Dark Side of the Moon",
+      "artista": "Pink Floyd",
+      "genero": "Progressive Rock",
+      "precio": 39.99,
+      "formato": "LP",
+      "fechaLanzamiento": 1973,
+      "stock": 8,
+      "descripcion": "Un clásico de la música progresiva, conocido por su icónica portada y sonido inmersivo.",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7zQG8Szdg7cOOP6qf6ybJbg8Gxs5guckTJA&s"
+    },
+    {
+      "id": "2d5c4a5c-cb25-4905-acc4-e61c8c22f722"
+    },
+    {
+      "id": "0e26cb7b-2152-4945-90a1-0895bf3e1f6b"
+    },
+    {
+      "id": "72afb7d9-1776-4a8f-86ac-8bbdb4f07984"
+    },
+    {
+      "id": "441e7916-044e-4ae8-ad99-f66aeef2bc06",
+      "idProducto": "P003",
+      "nombre": "Thriller",
+      "artista": "Michael Jackson",
+      "genero": "Pop",
+      "precio": 29.99,
+      "formato": "LP",
+      "fechaLanzamiento": 1982,
+      "stock": 15,
+      "descripcion": "El álbum más vendido de todos los tiempos, con éxitos como 'Billie Jean' y 'Thriller'.",
+      "imagen": "data:image/jpeg;base64,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"
+    },
+    {
+      "id": "78ba9b1c-95ff-4b66-904f-8d2da0501ab3",
+      "idProducto": "P003",
+      "nombre": "Thriller",
+      "artista": "Michael Jackson",
+      "genero": "Pop",
+      "precio": 29.99,
+      "formato": "LP",
+      "fechaLanzamiento": 1982,
+      "stock": 15,
+      "descripcion": "El álbum más vendido de todos los tiempos, con éxitos como 'Billie Jean' y 'Thriller'.",
+      "imagen": ""
+    },
+    {
+      "id": "71f463af-5fad-401f-8d28-cf40f8ca0acc",
+      "idProducto": "P003",
+      "nombre": "Thriller",
+      "artista": "Michael Jackson",
+      "genero": "Pop",
+      "precio": 29.99,
+      "formato": "LP",
+      "fechaLanzamiento": 1982,
+      "stock": 15,
+      "descripcion": "El álbum más vendido de todos los tiempos, con éxitos como 'Billie Jean' y 'Thriller'.",
+      "imagen": ""
+    }
+  ],
+  "clients": [
+    {
+      "id": "a6846fe1-132e-4675-821b-f792efd0d950",
+      "password": "$2b$10$ZreME4CwJxt5KfApJI1M8usFRjVwFqyRGoQlAb99.dQUR/WWSUGJe",
+      "name": "Walter Cobacango",
+      "username": "walter"
     }
   ]
 }

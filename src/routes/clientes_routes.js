@@ -7,17 +7,17 @@ const router = Router();
 // RUTAS PUBLICAS
 
 // Ruta del Cliente -Registro
-router.post('/clientes/registro',registroClienteController);
+router.post('/clients/registro',registroClienteController);
 // Ruta de Login-Cliente
-router.post('/clientes/login',loginClienteController)
+router.post('/clients/login',loginClienteController)
 
 
 // RUTAS PRIVADAS 
 
 // Ruta de Actualización-Cliente
-router.put('/clientes/:id',verifytoken,  actualizarClienteController)
+router.put('/clients/:id',verifytoken,  actualizarClienteController)
 // Ruta de Eliminacion-Cliente
-router.delete('/clientes/:id',verifytoken,  eliminarClienteController)
+router.delete('/clients/:id',verifytoken,  eliminarClienteController)
 // Ruta de Actualización-Cliente
 
 export default router

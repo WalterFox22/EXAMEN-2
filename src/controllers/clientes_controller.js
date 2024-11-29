@@ -26,6 +26,7 @@ const loginClienteController =async (req,res) =>{
     const{username,password}= req.body;
     try {
         const cliente = await clientes_model.loginClienteUserModel(username,password);
+        delete cliente.password
         const token = createtoken(cliente)
         res.status(200).json({cliente,token})
     } catch (error) {

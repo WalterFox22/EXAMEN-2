@@ -8,8 +8,8 @@ const router = Router();
 // RUTAS PRIVADAS
 
 // Ruta para actualizar un producto por ID
-router.put('/admin/products/:id',verifytoken ,updateProductController);
+router.put('/products/admin/:id',verifytoken ,updateProductController);
 // Crear productos 
-router.post('/admin/products',verifytoken, createProductController)
+router.post('/products/admin',verifytoken, createProductController)
 
 export default router;

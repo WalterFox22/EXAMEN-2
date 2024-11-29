@@ -4,7 +4,8 @@ dotenv.config();
 const productModel = {
     
     async createProductModel(newProduct){
-        const url = process.env.URL_BDD_TOURS
+        
+        const url = process.env.URL_BDD_PRODUCTS
         const peticion  = await fetch(url,{
             method:'POST',
             body:JSON.stringify(newProduct),
@@ -21,6 +22,7 @@ const productModel = {
     // Actualizar un producto por ID
     async updateProductModel(productId, updatedData) {
         try {
+            
             const url = `${process.env.URL_BDD_PRODUCTS}/${productId}`;
             const response = await fetch(url, {
                 method: 'PUT',

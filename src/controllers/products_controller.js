@@ -11,12 +11,12 @@ const createProductController = async (req,res) => {
     try {
         // carga de imagen 
         const cloudinaryResponse= await cloudinary.uploader.upload(req.files.imagen.tempFilePath, {folder:'products'})
-        newProductData.imagen= cloudinaryResponse.secure_url
-        newProductData.public_id = cloudinaryResponse.public_id
+       newProductData.imagen= cloudinaryResponse.secure_url
+       newProductData.public_id = cloudinaryResponse.public_id
 
         const producto = await productModel.createProductModel(newProductData)
         // eliminar la imagne despues de ser cargado en cloudinaria (los temporales)
-        await fs.unlink(req.files.imagen.tempFilePath)
+       await fs.unlink(req.files.imagen.tempFilePath)
         res.status(201).json(producto)
     } catch (error) {
         res.status(500).json(error)
