@@ -2,6 +2,22 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const productModel = {
+    
+    async createProductModel(newProduct){
+        const url = process.env.URL_BDD_TOURS
+        const peticion  = await fetch(url,{
+            method:'POST',
+            body:JSON.stringify(newProduct),
+            headers:{'Content-Type':'application/json'}
+        })
+        const data = await peticion.json()
+        return data
+    },
+    
+    
+    
+    
+    
     // Actualizar un producto por ID
     async updateProductModel(productId, updatedData) {
         try {
@@ -23,7 +39,8 @@ const productModel = {
         } catch (error) {
             throw new Error(`Error en updateProductModel: ${error.message}`);
         }
-    },
+    }
+
 };
 
 export default productModel;
