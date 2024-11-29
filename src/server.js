@@ -2,7 +2,7 @@ import express from 'express'
 import routerAdmin from './routes/admin_routes.js'
 import dotenv from 'dotenv'
 import router_cliente from './routes/clientes_routes.js'
-
+import productRoutes from './routes/pproducts_routes.js'
 dotenv.config()
 
 // Inicializacion de express
@@ -28,5 +28,7 @@ app.use('/api',routerAdmin)
 
 app.use('/api',router_cliente)
 
+//Ruta - Productos
+app.use('/api', productRoutes);
 
 export default app
