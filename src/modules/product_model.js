@@ -20,7 +20,6 @@ const productModel = {
             // Filtrar solo los campos permitidos
             const allowedFields = [
                 'id',
-                'idProducto',
                 'nombre',
                 'artista',
                 'genero',
