@@ -26,12 +26,11 @@ const createProductController = async (req,res) => {
 
 // Controlador para actualizar un producto
 const updateProductController = async (req, res) => {
-    const { id } = req.params;
-    const { idProducto, nombre, artista, genero, precio, formato, fechaLanzamiento, stock, descripcion, imagen } = req.body;
+    const { id } = req.params; // Solo se mantiene 'id'
+    const { nombre, artista, genero, precio, formato, fechaLanzamiento, stock, descripcion, imagen } = req.body;
 
     // Crear un objeto con los datos a actualizar
     const updatedData = {
-        ...(idProducto && { idProducto }),
         ...(nombre && { nombre }),
         ...(artista && { artista }),
         ...(genero && { genero }),
@@ -41,7 +40,7 @@ const updateProductController = async (req, res) => {
         ...(stock && { stock }),
         ...(descripcion && { descripcion }),
         ...(imagen && { imagen }),
-        updatedAt: new Date(), // Agregar la fecha 
+        updatedAt: new Date(), // Agregar la fecha de última actualización
     };
 
     try {
@@ -67,6 +66,7 @@ const updateProductController = async (req, res) => {
         });
     }
 };
+
 
 
 export { 
