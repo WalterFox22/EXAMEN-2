@@ -13,6 +13,8 @@ router.post('/admin/register', registerAdminController);
 // Ruta pública: Login de administrador
 router.post('/admin/login', loginAdminController);
 
+// Ruta  
+
 // Ruta privada: Eliminar productos (se requiere autenticación)
 //router.delete('/admin/products/:id', verifytoken, deleteProductController);
 

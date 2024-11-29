@@ -1,6 +1,7 @@
 import express from 'express'
 import routerAdmin from './routes/admin_routes.js'
 import dotenv from 'dotenv'
+import router_cliente from './routes/clientes_routes.js'
 
 dotenv.config()
 
@@ -22,5 +23,10 @@ app.get('/', (req,res)=>{
 
 // Rutas - Admin
 app.use('/api',routerAdmin)
+
+//Ruta - Cliente
+
+app.use('/api',router_cliente)
+
 
 export default app
