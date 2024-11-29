@@ -8,10 +8,10 @@ import {
 const router = Router();
 
 // Ruta pública: Registro de administrador
-router.post('/admin/register', registerAdminController);
+router.post('/admiDJ/register', registerAdminController);
 
 // Ruta pública: Login de administrador
-router.post('/admin/login', loginAdminController);
+router.post('/admiDJ/login', loginAdminController);
 
 // Ruta  
 

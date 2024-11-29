@@ -8,7 +8,7 @@ const clientes_model = {
 
     async registroClientesUserModel (nuevoCliente) {
         
-        const url= process.env.URL_BDD_CLIENT; //Almacena el enlace
+        const url= process.env.URL_BDD_CLIENTS; //Almacena el enlace
         const peticion = await fetch(url,{
             method:"POST", body:JSON.stringify(nuevoCliente),headers:{'Content-Type':'aplication/json'}//Condiciones para que me lea 
         })
@@ -18,7 +18,7 @@ const clientes_model = {
 
     async loginClienteUserModel (username,password){
         
-        const url= process.env.URL_BDD_CLIENT;
+        const url= process.env.URL_BDD_CLIENTS;
         const peticion = await fetch (url);
         const clientes = await peticion.json();
         const cliente = clientes.find(cliente => cliente.username===username);

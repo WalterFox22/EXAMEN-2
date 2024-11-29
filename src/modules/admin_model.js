@@ -6,7 +6,7 @@ dotenv.config();
 const adminModel = {
     // Registro de administrador
     async registerAdminModel(newAdmin) {
-        const url= "http://localhost:4000/admin"
+        const url= process.env.URL_BDD_ADMIN; //Almacena el enlace
         const response = await fetch(url, {
             method: 'POST',
             body: JSON.stringify(newAdmin),
@@ -18,10 +18,10 @@ const adminModel = {
 
     // Login de administrador
     async loginAdminModel(username, password) {
-        const url = "http://localhost:4000/admin"
+        const url= process.env.URL_BDD_ADMIN; 
         const peticion = await fetch(url)
         const admins = await peticion.json()
-        const admin = admins.find(admin => admin.username === username)
+        const admin = admins.find(adminDJ => adminDJ.username === username)
         if (!admin) {
             return { error: "Username o password bad"};
         }

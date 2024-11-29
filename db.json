@@ -1,5 +1,5 @@
 {
-  "admin": [
+  "admiDJ": [
     {
       "id": "f319c13f-e7aa-48c1-9d26-9b5d5e7050a6",
       "password": "$2b$10$FlbTUh6zwPvUaqG0.QWDguvi0Yxsp2ihXYV17f/2CpTgEbRKa7qau",
@@ -23,7 +23,7 @@
       "role": "admin"
     }
   ],
-  "products": [
+  "productosDJ": [
     {
       "id": "P001",
       "nombre": "Abbey Road",
@@ -73,7 +73,7 @@
       "imagen": ""
     }
   ],
-  "clients": [
+  "clientesDJ": [
     {
       "id": "a6846fe1-132e-4675-821b-f792efd0d950",
       "password": "$2b$10$ZreME4CwJxt5KfApJI1M8usFRjVwFqyRGoQlAb99.dQUR/WWSUGJe",
