@@ -1,9 +1,12 @@
 import { Router } from 'express';
 import {verifytoken} from '../middlewares/auth.js'
-import { createProductController, updateProductController } from '../controllers/products_controller.js';
+import {getAllProductsController, getAllProductsControllerByID,createProductController, getAllProductsModel, getProductsByIdModel, updateProductController, getAllProductsController, getAllProductsControllerByID } from '../controllers/products_controller.js';
 
 const router = Router();
 
+//RUTAS PUBLICAS 
+router.get('/productosDJ', getAllProductsController);
+router.get('/productosDJ/:id', getAllProductsControllerByID);
 
 // RUTAS PRIVADAS
 

@@ -1,6 +1,22 @@
 import { v4 as uuidv4 } from 'uuid';
 import productModel from '../modules/product_model.js'; 
 
+const getAllProductsController = async(req,res) => {
+    const products = await productModel.getAllProductsModel()
+    res.status(200).json(products)
+}
+
+
+const getAllProductsControllerByID = async (req, res) => {
+    const {id} = req.params
+    try {
+        const product = await productModel.getProductsByIdModel(id)
+        const status = product.error ? 404 : 200
+        res.status(status).json(product)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
 
 
 const createProductController = async (req,res) => {
@@ -69,6 +85,8 @@ const updateProductController = async (req, res) => {
 
 
 
-export { 
+export {
+    getAllProductsController,
+    getAllProductsControllerByID,
     createProductController,
     updateProductController };

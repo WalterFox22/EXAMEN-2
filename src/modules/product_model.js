@@ -1,7 +1,28 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+
+
 const productModel = {
+
+    async getAllProductsModel(){
+        const peticion = await fetch(process.env.URL_BDD_PRODUCTS)
+        const data = await peticion.json()
+        return data
+    }
+    ,
+
+
+    async getProductsByIdModel(productId) {
+        const response = await fetch(`${process.env.URL_BDD_PRODUCTS}/${productId}`);
+        if (!response.ok) {
+            return {error:"Producto no encontrado"}
+        }
+        const data = await response.json()
+        return data
+    },
+
+
     // Crear un producto
     async createProductModel(newProduct) {
         const url = process.env.URL_BDD_PRODUCTS; // Asegúrate de que esta URL esté configurada en tu archivo .env
