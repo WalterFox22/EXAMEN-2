@@ -78,6 +78,17 @@ const productModel = {
             throw new Error(`Error en updateProductModel: ${error.message}`);
         }
     },
+
+    // Elimina un producto por su ID
+    async deleteProductModel (id) {
+        try {
+            const deletedProduct = await Product.findByIdAndDelete(id);
+            return deletedProduct; // Retorna el producto eliminado o null si no existe
+        } catch (error) {
+            throw new Error('Error al eliminar el producto: ' + error.message);
+        }
+    }
+    
 };
 
 export default productModel;
