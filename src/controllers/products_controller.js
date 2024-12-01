@@ -59,22 +59,18 @@ const updateProductController = async (req, res) => {
 
 
 const deleteProductController = async (req, res) => {
-    const { id } = req.params; // Obtener el ID del producto desde los parámetros
+    const { id } = req.params
 
     try {
-        // Buscar y eliminar el producto en el modelo
-        const deletedProduct = await productModel.deleteProductModel(id);
+        const deletedProduct = await productModel.getProductsByIdModel(id);
 
         // Verificar si el producto fue encontrado y eliminado
         if (!deletedProduct) {
             return res.status(404).json({ error: 'Producto no encontrado' });
         }
-
-        // Si el producto tiene una imagen en Cloudinary, eliminarla
-        if (deletedProduct.public_id) {
-            await cloudinary.uploader.destroy(deletedProduct.public_id);
-        }
-
+        await cloudinary.uploader.destroy(deletedProduct.public_id);
+        
+        await productModel.deleteProductModel(id)
         // Respuesta exitosa
         res.status(200).json({
             message: 'Producto eliminado correctamente',

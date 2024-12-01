@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import { json } from 'express';
+
 //import { watchFile } from 'fs-extra';
 dotenv.config();
 
@@ -60,6 +61,14 @@ const clientes_model = {
         // OBTENER REPUESTA DE BDD
         const data = await peticion.json()
         // MANDAR RESPUESTA A CONTROLADOR
+        return data
+    },
+    async getClienteByIdModel(clienteId) {
+        const response = await fetch(`${process.env.URL_BDD_CLIENTS}/${clienteId}`);
+        if (!response.ok) {
+            return {error:"Tour no encontrado"}
+        }
+        const data = await response.json()
         return data
     }
     

@@ -52,13 +52,17 @@ const productModel = {
 
     // Elimina un producto por su ID
     async deleteProductModel (id) {
-        try {
-            const deletedProduct = await Product.findByIdAndDelete(id);
-            return deletedProduct; // Retorna el producto eliminado o null si no existe
-        } catch (error) {
-            throw new Error('Error al eliminar el producto: ' + error.message);
-        }
-    }
+       // CONEXIÓN A BDD
+       const url = `${process.env.URL_BDD_PRODUCTS}/${id}`
+       // ENVIAR INFO A BDD
+       const peticion = await fetch(url,{
+           method:"DELETE"
+       })
+       // OBTENER REPUESTA DE BDD
+       const data = await peticion.json()
+       // MANDAR RESPUESTA A CONTROLADOR
+       return data
+   }
     
 };
 

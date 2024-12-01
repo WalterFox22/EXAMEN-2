@@ -61,6 +61,7 @@ const eliminarClienteController = async (req,res) => {
         res.status(500).json(error)
     }
 }
+
 export{
     registroClienteController,
     loginClienteController,

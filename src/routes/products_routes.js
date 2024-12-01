@@ -16,6 +16,6 @@ router.post('/productosDJ/admin',verifytoken, createProductController);
 router.put('/productosDJ/admin/:id',verifytoken ,updateProductController);
 
 // Ruta para eliminar un producto
-router.delete('/products/:id', deleteProductController);
+router.delete('/productosDJ/admin/:id', deleteProductController);
 
 export default router;
