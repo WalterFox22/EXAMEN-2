@@ -2,6 +2,8 @@ import bcrypt from 'bcrypt';
 import {v4 as uuidv4} from 'uuid'
 import  clientes_model  from "../modules/clientes_model.js";
 import  {createtoken}  from "../middlewares/auth.js";
+import { v2 as cloudinary } from 'cloudinary'
+
 // Variable de los altos el numero varia puede ser mas no menos
 const saltosRounds =10;
 //Reglas de como se debe guardar 
@@ -48,23 +50,33 @@ const actualizarClienteController = async(req,res) => {
 const eliminarClienteController = async (req,res) => { 
     const {id} = req.params
     try {
-
-        // Obtener el Tour por ID
-        const clienteFind = await clientes_model.getClienteByIdModel(id)
-        // Eliminación por su public_id de cloudinary
-        await cloudinary.uploader.destroy(clienteFind.public_id)
-
-
         await clientes_model.eliminarClienteModel(id)
         res.status(200).json({msg:"Cliente eliminado"})
     } catch (error) {
         res.status(500).json(error)
     }
 }
+const getClienteByIDController = async (req,res) => {
+    const {id} = req.params
+    try {
+        const tour = await clientes_model.getClienteByIdModel(id)
+        res.status(200).json(tour)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+const getAllClientesControllers = async(req,res) => {
+    const tours = await clientes_model.getAllClientesModel()
+    res.status(200).json(tours)
+}
+
 
 export{
     registroClienteController,
     loginClienteController,
     actualizarClienteController,
     eliminarClienteController,
+    getClienteByIDController,
+    getAllClientesControllers
 }

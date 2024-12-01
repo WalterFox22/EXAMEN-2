@@ -5,17 +5,16 @@ import {getAllProductsController, getAllProductsControllerByID,createProductCont
 const router = Router();
 
 //RUTAS PUBLICAS 
-router.get('/productosDJ', getAllProductsController);
-router.get('/productosDJ/:id', getAllProductsControllerByID);
+router.get('/productosDj', getAllProductsController);
+router.get('/productosDj/:id', getAllProductsControllerByID);
 
 // RUTAS PRIVADAS
 
 // Crear productos 
-router.post('/productosDJ/admin',verifytoken, createProductController);
+router.post('/productosDj/admin',verifytoken, createProductController);
 // Ruta para actualizar un producto por ID
-router.put('/productosDJ/admin/:id',verifytoken ,updateProductController);
-
+router.put('/productosDj/admin/:id',verifytoken ,updateProductController);
 // Ruta para eliminar un producto
-router.delete('/productosDJ/admin/:id', deleteProductController);
+router.delete('/productosDj/admin/:id',verifytoken , deleteProductController);
 
 export default router;

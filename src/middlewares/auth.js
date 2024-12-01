@@ -2,7 +2,7 @@ import jwt, {decode} from 'jsonwebtoken'
 
 //CREAMOS EL TOKEN
 const createtoken = (userInfo) => {
-    return jwt.sign(userInfo, 'secret_key',{expiresIn:'10h'})
+    return jwt.sign(userInfo, 'secret_key',{expiresIn:'2h'})
 }
 // VERIFICAMOS EL TOKEN
 const verifytoken= (req,res,next)=>{

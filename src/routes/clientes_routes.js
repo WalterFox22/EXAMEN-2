@@ -1,5 +1,5 @@
-import { Router } from "express";
-import { actualizarClienteController, eliminarClienteController, loginClienteController, registroClienteController } from "../controllers/clientes_controller.js";
+import { Router } from 'express'
+import { actualizarClienteController, eliminarClienteController, getClienteByIDController, loginClienteController, registroClienteController } from "../controllers/clientes_controller.js";
 import { verifytoken } from "../middlewares/auth.js";
 
 const router = Router();
@@ -7,17 +7,17 @@ const router = Router();
 // RUTAS PUBLICAS
 
 // Ruta del Cliente -Registro
-router.post('/clientesDJ/registro',registroClienteController);
+router.post('/clientesDj/registro',registroClienteController);
 // Ruta de Login-Cliente
-router.post('/clientesDJ/login',loginClienteController)
+router.post('/clientesDj/login',loginClienteController)
 
 
-// RUTAS PRIVADAS 
-
+// RUTAS PRIVADAS
+router.get('/clientesDj/:id',verifytoken,getClienteByIDController)
 // Ruta de Actualización-Cliente
-router.put('/clientesDJ/:id',verifytoken,  actualizarClienteController)
+router.put('/clientesDj/:id',verifytoken,  actualizarClienteController)
 // Ruta de Eliminacion-Cliente
-router.delete('/clientesDJ/:id',verifytoken,  eliminarClienteController)
+router.delete('/clientesDj/:id',verifytoken,  eliminarClienteController)
 // Ruta de Actualización-Cliente
 
 export default router
