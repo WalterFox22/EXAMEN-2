@@ -1,5 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import productModel from '../modules/product_model.js'; 
+import { v2 as cloudinary } from 'cloudinary'
+
+import fs from 'fs-extra'
 
 const getAllProductsController = async(req,res) => {
     const products = await productModel.getAllProductsModel()
@@ -26,7 +29,7 @@ const createProductController = async (req,res) => {
     }
     try {
         // carga de imagen 
-        const cloudinaryResponse= await cloudinary.uploader.upload(req.files.imagen.tempFilePath, {folder:'products'})
+       const cloudinaryResponse= await cloudinary.uploader.upload(req.files.imagen.tempFilePath, {folder:'products'})
        newProductData.imagen= cloudinaryResponse.secure_url
        newProductData.public_id = cloudinaryResponse.public_id
 
@@ -42,46 +45,18 @@ const createProductController = async (req,res) => {
 
 // Controlador para actualizar un producto
 const updateProductController = async (req, res) => {
-    const { id } = req.params; // Solo se mantiene 'id'
-    const { nombre, artista, genero, precio, formato, fechaLanzamiento, stock, descripcion, imagen } = req.body;
-
-    // Crear un objeto con los datos a actualizar
-    const updatedData = {
-        ...(nombre && { nombre }),
-        ...(artista && { artista }),
-        ...(genero && { genero }),
-        ...(precio && { precio }),
-        ...(formato && { formato }),
-        ...(fechaLanzamiento && { fechaLanzamiento }),
-        ...(stock && { stock }),
-        ...(descripcion && { descripcion }),
-        ...(imagen && { imagen }),
-        updatedAt: new Date(), // Agregar la fecha de última actualización
-    };
-
+    const {id} = req.params
     try {
-        // Llamar al modelo para actualizar el producto
-        const updatedProduct = await productModel.updateProductModel(id, updatedData);
-
-        // Verificar si el producto fue encontrado
-        if (!updatedProduct) {
-            return res.status(404).json({ error: 'Producto no encontrado' });
-        }
-
-        // Enviar respuesta exitosa
-        res.status(200).json({
-            message: 'Producto actualizado',
-            updatedProduct,
-        });
+        const tour = await productModel.updateProductModel(id,req.body)
+        res.status(200).json(tour)
     } catch (error) {
-        // Manejo de errores
-        console.error(error);
-        res.status(500).json({
+        req.status(500).json({
             error: 'Error al actualizar el producto',
             details: error.message,
-        });
+        })
     }
-};
+    };
+
 
 const deleteProductController = async (req, res) => {
     const { id } = req.params; // Obtener el ID del producto desde los parámetros
