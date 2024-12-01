@@ -35,7 +35,7 @@ const productModel = {
         return data;
     },
 
-    // Actualizar un producto por ID (con los campos especificados)
+    // Actualizar un producto por ID 
     async updateProductModel(productId, updatedData) {
         try {
             // Filtrar solo los campos permitidos

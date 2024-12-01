@@ -31,7 +31,7 @@ const loginAdminController = async (req, res) => {
     
     try {
         const admin = await adminModel.loginAdminModel(username, password);
-
+    
         // Validaciones sobre el login de un administrador ya que se tiene que registrar con el rol de admin 
         // Validar si existe un error o si el usuario no es un administrador
         if (admin.error || admin.role !== "admin") {
@@ -43,8 +43,8 @@ const loginAdminController = async (req, res) => {
         if (!isMatch) {
             return res.status(401).json({ error: "Credenciales incorrectas." });
         }
-
-
+        delete admin.password
+        delete admin.role
         // Crear el token de autenticación
         const token = createtoken(admin);
 

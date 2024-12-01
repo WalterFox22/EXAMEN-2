@@ -10,10 +10,10 @@ router.get('/productosDJ/:id', getAllProductsControllerByID);
 
 // RUTAS PRIVADAS
 
-// Ruta para actualizar un producto por ID
-router.put('/productosDJ/admin/:id',verifytoken ,updateProductController);
 // Crear productos 
 router.post('/productosDJ/admin',verifytoken, createProductController);
+// Ruta para actualizar un producto por ID
+router.put('/productosDJ/admin/:id',verifytoken ,updateProductController);
 
 // Ruta para eliminar un producto
 router.delete('/products/:id', deleteProductController);
