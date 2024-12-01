@@ -1,6 +1,6 @@
-import { Router } from 'express';
+import { Router } from 'express'
 import {verifytoken} from '../middlewares/auth.js'
-import {getAllProductsController, getAllProductsControllerByID,createProductController, getAllProductsModel, getProductsByIdModel, updateProductController, getAllProductsController, getAllProductsControllerByID, deleteProductController } from '../controllers/products_controller.js';
+import {getAllProductsController, getAllProductsControllerByID,createProductController, updateProductController, deleteProductController } from '../controllers/products_controller.js'
 
 const router = Router();
 
