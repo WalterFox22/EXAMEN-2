@@ -1,0 +1,19 @@
+config:
+  target: 'https://administrador.free.beeceptor.com'  # URL del nuevo servidor de administrador
+  phases:
+    - duration: 60         # Duración total de la prueba: 60 segundos
+      arrivalRate: 20      # Usuarios que llegan por segundo
+      rampTo: 100          # Incrementa la carga hasta 100 usuarios por segundo
+
+scenarios:
+  - flow:
+      - get:
+          url: "/api/adminDj"  # Endpoint público para obtener datos de admin
+      - post:
+          url: "/api/adminDj/admin"  # Endpoint privado para crear administrador
+          headers:
+            Authorization: "Bearer MOCKED_TOKEN"  # Mockea el token para rutas protegidas
+          json:
+            name: "Administrador de prueba"  # Datos de ejemplo para crear un administrador
+            email: "admin@prueba.com"  
+            role: "superadmin"

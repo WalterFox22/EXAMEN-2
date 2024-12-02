@@ -1,0 +1,19 @@
+config:
+  target: 'https://clientes.free.beeceptor.com'  # URL del nuevo servidor de clientes
+  phases:
+    - duration: 60         # Duración total de la prueba: 60 segundos
+      arrivalRate: 20      # Usuarios que llegan por segundo
+      rampTo: 100          # Incrementa la carga hasta 100 usuarios por segundo
+
+scenarios:
+  - flow:
+      - get:
+          url: "/api/clientesDj"  
+      - post:
+          url: "/api/clientesDj/admin" 
+          headers:
+            Authorization: "Bearer MOCKED_TOKEN"  
+          json:
+            name: "Cliente de prueba"  # Datos de ejemplo para crear un cliente
+            email: "cliente@prueba.com"  
+            phone: "123456789"
