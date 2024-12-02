@@ -7,11 +7,11 @@ config:
 scenarios:
   - flow:
       - get:
-          url: "/api/productosDj"    # api publica para obtener productos
+          url: "/api/productosDj"    
       - post:
-          url: "/api/productosDj/admin"   # api privada para crear productos
+          url: "/api/productosDj/admin"   
           headers:
             Authorization: "Bearer MOCKED_TOKEN"  
           json:
-            name: "Producto de prueba"
+            name: "Producto de prueba"   # Datos de ejemplo para los productos
             price: 100

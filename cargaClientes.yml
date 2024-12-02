@@ -1,5 +1,5 @@
 config:
-  target: 'https://clientes.free.beeceptor.com'  # URL del nuevo servidor de clientes
+  target: 'https://clientes.free.beeceptor.com'  
   phases:
     - duration: 60         # Duración total de la prueba: 60 segundos
       arrivalRate: 20      # Usuarios que llegan por segundo
