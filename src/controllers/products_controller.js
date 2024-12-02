@@ -59,29 +59,22 @@ const updateProductController = async (req, res) => {
 
 
 const deleteProductController = async (req, res) => {
-    const { id } = req.params
-
+    const { id } = req.params;
     try {
-        const productFind = await productModel.getProductsByIdModel(id);
-        await cloudinary.uploader.destroy(productFind.public_id)
-        
-        await productModel.deleteProductModel(id)
-        // Respuesta exitosa
-        res.status(200).json({
-            message: 'Producto eliminado correctamente',
-            deletedProduct,
-        })
+        const product = await productModel.getProductsByIdModel(id);
+
+        if (product.error) {
+            return res.status(404).json({ error: 'Producto no encontrado' });
+        }
+
+        await cloudinary.uploader.destroy(product.public_id);
+        await productModel.deleteProductModel(id);
+
+        res.status(200).json({ message: 'Producto eliminado correctamente', deletedProduct: product });
     } catch (error) {
-        // Manejo de errores
-        console.error(error);
-        res.status(500).json({
-            error: 'Error al eliminar el producto',
-            details: error.message,
-        })
+        res.status(500).json({ error: 'Error al eliminar el producto', details: error.message });
     }
 };
-
-
 
 
 export {
