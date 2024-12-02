@@ -12,14 +12,14 @@ const productModel = {
     }
     ,
     async getProductsByID(productId){
-        const peticion = await fetch(`${process.env.URL_BDD_PRODUCTS}/${productId}`)
+        const peticion = await fetch(`${process.env.URL_BDD_PRODUCTS}${productId}`)
         const data = await peticion.json()
         return data
     },
 
 
     async getProductsByIdModel(productId) {
-        const response = await fetch(`${process.env.URL_BDD_PRODUCTS}/${productId}`)
+        const response = await fetch(`${process.env.URL_BDD_PRODUCTS}${productId}`)
         if (!response.ok) {
             return {error:"Producto no encontrado"}
         }
@@ -58,7 +58,7 @@ const productModel = {
     // Elimina un producto por su ID
     async deleteProductModel (productId) {
        // CONEXIÓN A BDD
-       const url = `${process.env.URL_BDD_PRODUCTS}/${productId}`
+       const url = `${process.env.URL_BDD_PRODUCTS}${productId}`
        // ENVIAR INFO A BDD
        const peticion = await fetch(url,{
            method:"DELETE"
