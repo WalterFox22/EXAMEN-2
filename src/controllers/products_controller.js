@@ -55,7 +55,7 @@ const updateProductController = async (req, res) => {
             details: error.message,
         })
     }
-};
+}
 
 
 const deleteProductController = async (req, res) => {

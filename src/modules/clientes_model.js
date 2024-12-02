@@ -35,7 +35,7 @@ const clientes_model = {
 
     async actualizarClienteModel(clienteId,actualizarClienteModel){
        
-        const url = `${process.env.URL_BDD_CLIENTS}/${clienteId}`
+        const url = `${process.env.URL_BDD_CLIENTS}${clienteId}`
         // ENVIAR INFO A BDD
         const peticion = await fetch(url,{
             method:"PUT",
@@ -52,7 +52,7 @@ const clientes_model = {
 
     async eliminarClienteModel(clienteId){
         
-        const url = `${process.env.URL_BDD_CLIENTS}/${clienteId}`
+        const url = `${process.env.URL_BDD_CLIENTS}${clienteId}`
         // ENVIAR INFO A BDD
         const peticion = await fetch(url,{
             method:"DELETE"
@@ -64,7 +64,7 @@ const clientes_model = {
     },
 
     async getClienteByIdModel(clienteId) {
-        const response = await fetch(`${process.env.URL_BDD_CLIENTS}/${clienteId}`);
+        const response = await fetch(`${process.env.URL_BDD_CLIENTS}${clienteId}`);
         if (!response.ok) {
             return {error:"Cliente no encontrado"}
         }
