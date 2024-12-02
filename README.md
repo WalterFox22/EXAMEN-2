@@ -30,7 +30,9 @@ Roles:
 ## Rutas privadas y publicas de cada rol en el proyecto 
 
 Admin/productos
+
 ![image](https://github.com/user-attachments/assets/c09f55b6-0bf2-4282-8a23-6cfb594aa305)
+
 
 ![image](https://github.com/user-attachments/assets/26365b3b-82dc-4b25-9295-92b6ffb83c44)
 
