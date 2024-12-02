@@ -59,6 +59,6 @@ Productos a la venta
 - Adrian Cadena
 - Ariel Ashqui
 ## 🔗 Links despliegue
-[![Vercel](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://examen-2-dun.vercel.app/)
+[![Vercel](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://examen-2-five.vercel.app/)
 
 
